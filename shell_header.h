@@ -29,5 +29,7 @@ list_t *add_node_end(list_t **head, const char *str);
 int _strcmp(char *s1, char *s2);
 void _printenv(void);
 char *_getenv(const char *name);
+int _strncmp(char *s1, char *s2, size_t n);
+char *_strdup(char *str);
 
 #endif

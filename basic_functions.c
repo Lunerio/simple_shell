@@ -1,4 +1,4 @@
-/*Functions for string length, creating nodes*/
+#include "shell_header.h"
 
 /**
  * _strlen - get char count
@@ -73,7 +73,7 @@ int _strcmp(char *s1, char *s2)
 	int ch1;
 	int ch2;
 
-	for (index = 0; (s1[index] != '\0') && (s2[index] != '\0'); index++)
+	for (index = 0; (s1[index] != '\0') || (s2[index] != '\0'); index++)
 	{
 		ch1 = s1[index];
 		ch2 = s2[index];
@@ -118,7 +118,7 @@ char *_getenv(const char *name)
 		for (j = 0; environ[i][j] != '='; j++)
 		{
 		}
-		ch = strncmp(environ[i], name, j);
+		ch = _strncmp(environ[i], name, j);
 		if (ch == 0)
 		{
 			strtok(environ[i], "=");
