@@ -1,13 +1,13 @@
 #include "shell_header.h"
 
 /**
- * _strcmp - check the code for Holberton School students.
+ * _strncmp - check the code for Holberton School students.
  * @s1: pointer to s1
  * @s2: pointer to s2
  * Return: Always 0.
  */
 
-int _strcmp(char *s1, char *s2, size_t n)
+int _strncmp(char *s1, char *s2, size_t n)
 {
 	int i;
 	int ch1;

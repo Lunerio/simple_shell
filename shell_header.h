@@ -31,5 +31,7 @@ void _printenv(void);
 char *_getenv(const char *name);
 int _strncmp(char *s1, char *s2, size_t n);
 char *_strdup(char *str);
+char **tokenizer(char *string, char **argv);
+char *get_newline(void);
 
 #endif
