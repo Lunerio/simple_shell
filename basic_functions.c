@@ -42,7 +42,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (0);
 	}
 
-	(*newnode).str = strdup(str);
+	(*newnode).str = _strdup(str);
 	(*newnode).next = NULL;
 
 	if (*head == NULL)
