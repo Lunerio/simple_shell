@@ -59,3 +59,71 @@ list_t *add_node_end(list_t **head, const char *str)
 	(*temp).next = newnode;
 	return (newnode);
 }
+
+/**
+ * _strcmp - compare two strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: 0 if both are the same
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int index;
+	int ch1;
+	int ch2;
+
+	for (index = 0; (s1[index] != '\0') && (s2[index] != '\0'); index++)
+	{
+		ch1 = s1[index];
+		ch2 = s2[index];
+
+		if (ch1 != ch2)
+		{
+			break;
+		}
+	}
+	return (ch1 - ch2);
+}
+
+/**
+ * _printenv - print every line of env
+ */
+
+void _printenv(void)
+{
+	extern char **environ;
+	int i;
+	size_t j;
+
+	for (i = 0; environ[i] != 0; i++)
+	{
+		for (j = 0; environ[i][j] != 0; j++)
+		{
+		}
+		write(1, environ[i], j);
+		write(1, "\n", 1);
+	}
+}
+
+char *_getenv(const char *name)
+{
+	extern char **environ;
+	int i;
+	size_t j;
+	int ch;
+
+	for (i = 0; environ[i] != 0; i++)
+	{
+		for (j = 0; environ[i][j] != '='; j++)
+		{
+		}
+		ch = strncmp(environ[i], name, j);
+		if (ch == 0)
+		{
+			strtok(environ[i], "=");
+			return (strtok(NULL, "="));
+		}
+	}
+	return (NULL);
+}
