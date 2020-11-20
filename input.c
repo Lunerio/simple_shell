@@ -1,9 +1,9 @@
 #include "shell_header.h"
 
-char *get_newline(void)
+char *get_newline(char *string)
 {
 	char *cont = "\n";
-
+	size_t buf = 0;
 	int i = getline(&string, &buf, stdin);
 
 	if (i == -1)
