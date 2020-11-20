@@ -15,29 +15,44 @@ int main(void)
 	}
 	while (1)
 	{
-		a = isatty(fd);
+        	a = isatty(fd);
 		if (a == 1)
 		{
 			write(1, "($) ", 4);
 		}
 		str = get_newline(string);
 		if (str == NULL)
-			break;
+		{
+			return (0);
+		}
 		if (str[0] == '\n')
 			continue;
 		argv = tokenizer(str, av);
 		child_pid = fork();
 		if (child_pid == -1)
 		{
-			perror("Error"); continue;
+			free(str);
+			for (i = 0; i < 64; i++)
+			{
+				free(av[i]);
+			}
+			free(av);
+			perror("Error");
+			return (1);
 		}
 		if (child_pid == 0)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				perror("Error"); break;
+				perror("Error"); return (1);
 			}
-			break;
+			free(str);
+			for (i = 0; i < 64; i++)
+			{
+				free(av[i]);
+			}
+			free(av);
+			return (0);
 		}
 		else
 		{
@@ -49,5 +64,6 @@ int main(void)
 	{
 		free(av[i]);
 	}
+	free(av);
 	return (0);
 }
