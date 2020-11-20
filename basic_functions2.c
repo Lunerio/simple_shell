@@ -9,11 +9,11 @@
 
 int _strncmp(char *s1, char *s2, size_t n)
 {
-	int i;
+	unsigned int i;
 	int ch1;
 	int ch2;
 
-	for (i = 0; (s1[i] != '\0') || (s2[i] != '\0') && i < n; i++)
+	for (i = 0; ((s1[i] != '\0') || (s2[i] != '\0')) && (i < n); i++)
 	{
 		ch1 = s1[i];
 		ch2 = s2[i];
