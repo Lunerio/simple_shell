@@ -24,10 +24,9 @@ int _strlen(char *s)
  * Return: pointer to the node created
  */
 
-list_t *add_node_end(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, char *str)
 {
 	list_t *newnode, *temp;
-	int si;
 
 	temp = *head;
 

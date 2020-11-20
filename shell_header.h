@@ -25,7 +25,7 @@ typedef struct list_s
 } list_t;
 
 int _strlen(char *s);
-list_t *add_node_end(list_t **head, const char *str);
+list_t *add_node_end(list_t **head, char *str);
 int _strcmp(char *s1, char *s2);
 void _printenv(void);
 char *_getenv(const char *name);
