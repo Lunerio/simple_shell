@@ -2,21 +2,30 @@
 
 int main(void)
 {
-	char *string = malloc(512);
-	char **argv = malloc(512);
-	int status;
+	char *string = NULL, *str = NULL;
+	char **argv = NULL, **av = NULL;
+	int status, a, i, fd = 0;
 	pid_t child_pid;
-	char *str = NULL;
 
+	av = malloc(64);
+	str = malloc(64);
+	for (i = 0; i < 64; i++)
+	{
+		av[i] = malloc(64);
+	}
 	while (1)
 	{
-		write(1, "($) ", 4);
+		a = isatty(fd);
+		if (a == 1)
+		{
+			write(1, "($) ", 4);
+		}
 		str = get_newline(string);
 		if (str == NULL)
 			break;
 		if (str[0] == '\n')
 			continue;
-		argv = tokenizer(str, argv);
+		argv = tokenizer(str, av);
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -26,14 +35,19 @@ int main(void)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				perror("Error"); exit(25); continue;
+				perror("Error"); break;
 			}
 			break;
 		}
 		else
+		{
 			wait(&status);
+		}
 	}
-	free(string);
-	free(argv);
+	free(str);
+	for (i = 0; i < 64; i++)
+	{
+		free(av[i]);
+	}
 	return (0);
 }
