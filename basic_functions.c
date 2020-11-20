@@ -105,7 +105,7 @@ void _printenv(void)
 	}
 }
 
-char *_getenv(const char *name)
+char *_getenv(char *name)
 {
 	extern char **environ;
 	int i;

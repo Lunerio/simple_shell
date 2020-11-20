@@ -2,26 +2,21 @@
 
 int main(void)
 {
-	char *string = malloc(256);
-	char **argv = malloc(64);
-	int i, status;
+	char *string = malloc(512);
+	char **argv = malloc(512);
+	int status;
 	pid_t child_pid;
+	char *str = NULL;
 
-	for (i = 0; i < 64; i++)
-		argv[i] = malloc(64);
 	while (1)
 	{
 		write(1, "($) ", 4);
-		string = get_newline(string);
-		if (string == NULL)
-		{
-			write(1, "\n", 1); break;
-		}
-		if (string[0] == '\n')
-		{
-			write(1, "\n", 1); continue;
-		}
-		argv = tokenizer(string, argv);
+		str = get_newline(string);
+		if (str == NULL)
+			break;
+		if (str[0] == '\n')
+			continue;
+		argv = tokenizer(str, argv);
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -31,15 +26,14 @@ int main(void)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				perror("Error"); continue;
+				perror("Error"); exit(25); continue;
 			}
+			break;
 		}
 		else
 			wait(&status);
 	}
 	free(string);
-	for (i = 0; i < 64; i++)
-		free(argv[i]);
 	free(argv);
 	return (0);
 }
