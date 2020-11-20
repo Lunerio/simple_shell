@@ -1,0 +1,124 @@
+.TH "_PRINTF" "3" "October 27th, 2020"
+
+.SH NAME
+_printf
+
+
+
+
+.SH SYNOPSIS
+#include "holberton.h"
+
+
+int _printf(const char *format, ...);
+
+
+
+
+.SH DESCRIPTION
+
+
+The function _printf() produces output according to a format as	described below, which is written to stdout, the standard output stream.
+
+
+This function writes the output under the control of a format string that specifies how subsequent arguments are converted for output.
+
+
+
+
+.B Format of the format string
+
+
+The format string is a character string, beginning and ending in its initial shift state, if any. The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments. Each conversion specification is introduced by the character %, and ends with a conversion specifier.
+
+
+It is okay to include more than one format specification in the printf string. In that case, the first format specification goes with the first additional argument, second goes with second, and so forth.
+
+
+
+
+.B Conversion specifiers
+
+
+A character that specifies the type of conversion to be applied. The main conversion specifiers and their meanings are:
+
+
+.IP d,i
+The int argument is converted to signed decimal notation. '%d' prints a decimal (base 10) number and '%i' prints an integer in base 10.
+
+
+.IP o,u,x,X
+The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X) notation.
+
+
+.IP c
+It prints a single character. The int argument is converted to an unsigned char, and the resulting character is written.
+
+
+.IP s
+It prints a string of characters. The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but not including) a terminating null byte ('\0').
+
+.IP %
+A percent sign ('%') is written. No argument is converted. The complete conversion specification is '%%'.
+
+
+
+
+.SH RETURN VALUE
+
+
+Upon successful return, this function returns the number of characters printed (excluding the null byte used to end output to strings).
+
+
+If an output error is encountered, a negative value is returned.
+
+
+
+
+.SH EXAMPLE
+
+
+#include "holberton.h"
+
+
+int main()
+
+
+	{
+
+
+		_printf ("Characters: %c %c \n", 'a', 65);
+
+
+   		_printf ("Decimal: % \n", 1977);
+
+
+   		_printf ("%s \n", "A string");
+
+
+   		return (0);
+
+
+	}
+
+
+
+
+.IP Output:
+
+
+Characters: a A
+
+
+Decimal: 1977
+
+
+A string
+
+
+
+
+.SH AUTHORS
+
+
+Written by Alexis Oreiro & Nicolás Portela.
