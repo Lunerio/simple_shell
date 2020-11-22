@@ -31,7 +31,9 @@ int _strncmp(char *s1, char *s2, size_t n);
 void _printenv(void);
 char *_getenv(char *name);
 char *_strdup(char *str);
-char **tokenizer(char *string, char **argv);
+char **tokenizer(char *string);
 char *get_newline(char *string);
+void p_prompt(void);
+char *_strcpy(char *dest, char *src);
 
 #endif

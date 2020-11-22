@@ -62,3 +62,40 @@ char *_strdup(char *str)
 
 	return (s);
 }
+
+/**
+ * p_prompt - Prints prompt on interactive mode
+ */
+
+void p_prompt(void)
+{
+	if (isatty(STDIN_FILENO))
+	{
+		write(1, "($) ", 4);
+	}
+}
+
+/**
+ * _strcpy - copy string from one pointer to a new one.
+ * @dest: pointer to dest
+ * @src: pointer to src
+ * Return: New pointer.
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+
+	int index = 0;
+	int cuenta;
+
+	while (src[index] != '\0')
+	{
+		index++;
+	}
+
+	for (cuenta = 0; cuenta <= index; cuenta++)
+	{
+		dest[cuenta] = src[cuenta];
+	}
+	return (dest);
+}

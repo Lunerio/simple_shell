@@ -2,68 +2,80 @@
 
 int main(void)
 {
-	char *string = NULL, *str = NULL;
-	char **argv = NULL, **av = NULL;
-	int status, a, i, fd = 0;
+	char *string;
+	char **argv = NULL;
+	int status, glcheck, i;
 	pid_t child_pid;
+	size_t buf = 0;
 
-	av = malloc(64);
-	str = malloc(64);
-	for (i = 0; i < 64; i++)
-	{
-		av[i] = malloc(64);
-	}
 	while (1)
 	{
-        	a = isatty(fd);
-		if (a == 1)
+		string = NULL;
+
+		p_prompt();
+
+		glcheck = getline(&string, &buf, stdin);
+		if (glcheck == -1)
 		{
-			write(1, "($) ", 4);
+			if(glcheck == EOF)
+			{
+				free(string);
+				return (0);
+			}
+			free(string);
+			break;
 		}
-		str = get_newline(string);
-		if (str == NULL)
+		if (string[0] == '\n')
 		{
+			free(string);
+			continue;
+		}
+
+		if (_strcmp(string, "exit\n") == 0)
+		{
+			free(string);
 			return (0);
 		}
-		if (str[0] == '\n')
-			continue;
-		argv = tokenizer(str, av);
+		if (_strcmp(string, "env\n") == 0)
+		{
+			free(string);
+			_printenv();
+			write(1, "\n", 1);
+		}
+
+		argv = tokenizer(string);
+
 		child_pid = fork();
+
 		if (child_pid == -1)
 		{
-			free(str);
-			for (i = 0; i < 64; i++)
-			{
-				free(av[i]);
-			}
-			free(av);
 			perror("Error");
 			return (1);
 		}
 		if (child_pid == 0)
 		{
-			if (execve(argv[0], argv, NULL) == -1)
+			if(execve(argv[0], argv, NULL) == -1)
 			{
-				perror("Error"); return (1);
+				perror("Error");
 			}
-			free(str);
-			for (i = 0; i < 64; i++)
+			free(string);
+			for (i = 0; argv[i] != NULL; i++)
 			{
-				free(av[i]);
+				free(argv[i]);
 			}
-			free(av);
-			return (0);
+			free(argv);
+			return(0);
 		}
 		else
 		{
 			wait(&status);
 		}
+		free(string);
+		for (i = 0; argv[i] != NULL; i++)
+		{
+			free(argv[i]);
+		}
+		free(argv);
 	}
-	free(str);
-	for (i = 0; i < 64; i++)
-	{
-		free(av[i]);
-	}
-	free(av);
 	return (0);
 }
