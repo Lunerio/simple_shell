@@ -37,5 +37,6 @@ void p_prompt(void);
 char *_strcpy(char *dest, char *src);
 void exec(char **argv, char *string);
 void fargv(char **argv);
+int checker(int glcheck, char *string);
 
 #endif
