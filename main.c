@@ -4,24 +4,23 @@ int main(void)
 {
 	char *string;
 	char **argv = NULL;
-	int status, glcheck, i;
-	pid_t child_pid;
+	int glcheck;
 	size_t buf = 0;
 
 	while (1)
 	{
 		string = NULL;
-
 		p_prompt();
-
 		glcheck = getline(&string, &buf, stdin);
 		if (glcheck == -1)
 		{
-			if(glcheck == EOF)
+			if (glcheck == EOF)
 			{
 				free(string);
-				return (0);
+				write(1, "\n", 1);
+				break;
 			}
+			perror("Error");
 			free(string);
 			break;
 		}
@@ -30,7 +29,6 @@ int main(void)
 			free(string);
 			continue;
 		}
-
 		if (_strcmp(string, "exit\n") == 0)
 		{
 			free(string);
@@ -42,40 +40,8 @@ int main(void)
 			_printenv();
 			write(1, "\n", 1);
 		}
-
 		argv = tokenizer(string);
-
-		child_pid = fork();
-
-		if (child_pid == -1)
-		{
-			perror("Error");
-			return (1);
-		}
-		if (child_pid == 0)
-		{
-			if(execve(argv[0], argv, NULL) == -1)
-			{
-				perror("Error");
-			}
-			free(string);
-			for (i = 0; argv[i] != NULL; i++)
-			{
-				free(argv[i]);
-			}
-			free(argv);
-			return(0);
-		}
-		else
-		{
-			wait(&status);
-		}
-		free(string);
-		for (i = 0; argv[i] != NULL; i++)
-		{
-			free(argv[i]);
-		}
-		free(argv);
+		exec(argv, string);
 	}
 	return (0);
 }

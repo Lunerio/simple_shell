@@ -35,5 +35,7 @@ char **tokenizer(char *string);
 char *get_newline(char *string);
 void p_prompt(void);
 char *_strcpy(char *dest, char *src);
+void exec(char **argv, char *string);
+void fargv(char **argv);
 
 #endif

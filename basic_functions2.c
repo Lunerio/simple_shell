@@ -99,3 +99,17 @@ char *_strcpy(char *dest, char *src)
 	}
 	return (dest);
 }
+
+/**
+ * fargv - free the argv and all the index
+ * @argv: double pointer with arguments
+ */
+
+void fargv(char **argv)
+{
+	int i;
+
+	for (i = 0; argv[i] != NULL; i++)
+		free(argv[i]);
+	free(argv);
+}
