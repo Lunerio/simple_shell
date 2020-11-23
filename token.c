@@ -1,6 +1,6 @@
 #include "shell_header.h"
 
-char **tokenizer(char *string)
+char **tokenizer(char *string, char *value)
 {
 	char *toc = NULL;
 	int i = 0, j = 0, toklen = 0;

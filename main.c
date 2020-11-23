@@ -7,13 +7,14 @@
 
 int main(void)
 {
-	char *string, **argv = NULL;
+	char *string, **argv = NULL, *value;
 	int glcheck, a, cp;
 	size_t buf = 0;
 
 	while (1)
 	{
 		string = NULL;
+		value = NULL;
 		cp = p_prompt();
 		glcheck = getline(&string, &buf, stdin);
 
@@ -31,7 +32,8 @@ int main(void)
 		}
 		else
 		{
-			argv = tokenizer(string);
+			value = _getenv("PATH");
+		        argv = tokenizer(string, value);
 			exec(argv, string);
 		}
 	}
