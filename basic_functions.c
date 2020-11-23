@@ -17,47 +17,6 @@ int _strlen(char *s)
 	return (index);
 }
 
-/**
- * add_node_end - Create new node
- * @head: pointer to head node
- * @str: string to add to node
- * Return: pointer to the node created
- */
-
-list_t *add_node_end(list_t **head, char *str)
-{
-	list_t *newnode, *temp;
-
-	temp = *head;
-
-	if (str == NULL)
-	{
-		return (0);
-	}
-
-	newnode = malloc(sizeof(list_t));
-	if (newnode == NULL)
-	{
-		return (0);
-	}
-
-	(*newnode).str = _strdup(str);
-	(*newnode).next = NULL;
-
-	if (*head == NULL)
-	{
-		(*head) = newnode;
-		return (newnode);
-	}
-
-	while ((*temp).next)
-	{
-		temp = (*temp).next;
-	}
-
-	(*temp).next = newnode;
-	return (newnode);
-}
 
 /**
  * _strcmp - compare two strings
