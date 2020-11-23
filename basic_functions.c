@@ -67,6 +67,12 @@ void _printenv(void)
 	}
 }
 
+/**
+ * *_getenv - get the value of given variable
+ * @name: variable name
+ * Return: value of given variable
+ */
+
 char *_getenv(char *name)
 {
 	extern char **environ;
@@ -87,4 +93,26 @@ char *_getenv(char *name)
 		}
 	}
 	return (NULL);
+}
+
+/**
+ * *_strcat - concatenates two strings
+ * @dest: string to concatenate to
+ * @src: string to be concatenated
+ * Return: strings concatenated
+ */
+
+char *_strcat(char *dest, char *src)
+{
+	int index, c;
+
+	for (index = 0; dest[index] != '\0'; index++)
+	{
+	}
+	for (c = 0; src[c] != '\0'; c++)
+	{
+		dest[index] = src[c];
+		index++;
+	}
+	return (dest);
 }
