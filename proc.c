@@ -8,7 +8,6 @@ retornar segun condiciones*/
          if (glcheck == EOF)
          {
               free(string);
-              write(1, "\n", 1);
               return (2); /*for exiting*/
 	 }
 	 perror("Error");
@@ -29,9 +28,8 @@ retornar segun condiciones*/
 
      if (_strcmp(string, "env\n") == 0)
      {
-	     free(string);
 	     _printenv();
-	     write(1, "\n", 1);
+	     return (4);
      }
      return (0);
 }

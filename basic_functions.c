@@ -101,7 +101,10 @@ void _printenv(void)
 		{
 		}
 		write(1, environ[i], j);
-		write(1, "\n", 1);
+		if (environ[i] != NULL)
+		{
+			write(1, "\n", 1);
+		}
 	}
 }
 

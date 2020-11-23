@@ -67,11 +67,16 @@ char *_strdup(char *str)
  * p_prompt - Prints prompt on interactive mode
  */
 
-void p_prompt(void)
+int p_prompt(void)
 {
-	if (isatty(STDIN_FILENO))
+	if (isatty(STDIN_FILENO) == 1)
 	{
 		write(1, "($) ", 4);
+		return (0);
+	}
+	else
+	{
+		return (1);
 	}
 }
 
