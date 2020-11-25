@@ -25,12 +25,12 @@ int checker(int glcheck, char *string)
 		free(string);
 		return (3); /*print new line */
 	}
-	if (_strcmp(string, "exit") == 0)
+	if (_strcmp(string, "exit\n") == 0)
 	{
 		free(string);
 		return (5); /*for exiting*/
 	}
-	if (_strcmp(string, "env") == 0)
+	if (_strcmp(string, "env\n") == 0)
 	{
 		_printenv();
 		return (4);

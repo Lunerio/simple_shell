@@ -34,11 +34,11 @@ int main(int ac, char **av)
 			perror(av[0]);
 		if (a == 4)
 		{
-	        	continue;
+			continue;
 		}
 		if (a == 5)
 		{
-			exit(0);
+			break;
 		}
 		else
 		{
