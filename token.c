@@ -9,7 +9,7 @@
 char **tokenizer(char *string)
 {
 	char *toc = NULL;
-	int i = 0,j = 0, toklen = 0;
+	int i = 0, j = 0, toklen = 0;
 	char **argv = NULL;
 
 	j = _strlen(string);

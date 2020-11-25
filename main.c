@@ -14,32 +14,22 @@ int main(int ac, char **av)
 	size_t buf = 0;
 
 	(void)ac;
-
 	while (1)
 	{
 		string = NULL;
 		cp = p_prompt();
 		glcheck = getline(&string, &buf, stdin);
-
 		a = checker(glcheck, string);
 		if (a == 2)
-		{
 			break;
-		}
 		if (a == 3)
-		{
 			write(1, "\n", 1);
-		}
 		if (a == 1)
 			perror(av[0]);
 		if (a == 4)
-		{
 			continue;
-		}
 		if (a == 5)
-		{
 			exit(0);
-		}
 		else
 		{
 			argv = tokenizer(string);
@@ -47,8 +37,6 @@ int main(int ac, char **av)
 		}
 	}
 	if (cp == 0)
-	{
 		write(1, "\n", 1);
-	}
 	return (0);
 }
