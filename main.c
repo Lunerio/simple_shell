@@ -38,7 +38,7 @@ int main(int ac, char **av)
 		}
 		if (a == 5)
 		{
-			exit(25);
+			exit(0);
 		}
 		else
 		{

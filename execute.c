@@ -18,7 +18,7 @@ void exec(char **argv, char *string, char **av)
 	if (child_pid == -1)
 	{
 		perror(av[0]);
-		exit(25);
+		exit(1);
 	}
 	if (child_pid == 0)
 	{
@@ -28,7 +28,7 @@ void exec(char **argv, char *string, char **av)
 		}
 		free(string);
 		fargv(argv);
-		exit(25);
+		exit(0);
 	}
 	else
 		wait(&status);
