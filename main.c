@@ -23,7 +23,9 @@ int main(int ac, char **av)
 		if (a == 2)
 			break;
 		if (a == 3)
-			write(1, "\n", 1);
+		{
+			continue;
+		}
 		if (a == 1)
 			perror(av[0]);
 		if (a == 4)
