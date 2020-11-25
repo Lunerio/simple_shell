@@ -7,7 +7,8 @@
  * Return: 1 for error, 2 on exit condition, 3 in new line, 4 for printenv
  */
 
-int checker(int glcheck, char *string){
+int checker(int glcheck, char *string)
+{
 	if (glcheck == -1)
 	{
 		if (glcheck == EOF)

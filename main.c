@@ -23,7 +23,7 @@ int main(int ac, char **av)
 
 		a = checker(glcheck, string);
 		if (a == 2)
-			exit (0);
+			exit(0);
 		if (a == 3)
 			write(1, "\n", 1);
 		if (a == 1)
