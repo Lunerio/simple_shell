@@ -9,6 +9,8 @@
 
 int checker(int glcheck, char *string)
 {
+	int i;
+
 	if (glcheck == -1)
 	{
 		if (glcheck == EOF)
@@ -36,7 +38,10 @@ int checker(int glcheck, char *string)
 		_printenv();
 		return (4);
 	}
-	if (string[0] == 32)
+	for (i = 0; string[i] != '\0'; i++)
+	{
+	}
+	if (string[i - 1] == 32)
 	{
 		free(string);
 		return (3);
