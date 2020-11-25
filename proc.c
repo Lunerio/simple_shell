@@ -32,6 +32,7 @@ int checker(int glcheck, char *string)
 	}
 	if (_strcmp(string, "env\n") == 0)
 	{
+		free(string);
 		_printenv();
 		return (4);
 	}
