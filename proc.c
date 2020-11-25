@@ -36,5 +36,10 @@ int checker(int glcheck, char *string)
 		_printenv();
 		return (4);
 	}
+	if (string[0] == 32)
+	{
+		free(string);
+		return (3);
+	}
 	return (0);
 }
