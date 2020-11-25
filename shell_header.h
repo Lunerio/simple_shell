@@ -19,7 +19,7 @@ char *_strdup(char *str);
 char **tokenizer(char *string);
 int p_prompt(void);
 char *_strcpy(char *dest, char *src);
-void exec(char **argv, char *string);
+void exec(char **argv, char *string, char **av);
 void fargv(char **argv);
 int checker(int glcheck, char *string);
 

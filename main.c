@@ -5,11 +5,13 @@
  * Return: returns 0 when finishes
  */
 
-int main(void)
+int main(int ac, char **av)
 {
 	char *string, **argv = NULL;
 	int glcheck, a, cp;
 	size_t buf = 0;
+
+	(void)ac;
 
 	while (1)
 	{
@@ -23,7 +25,7 @@ int main(void)
 		if (a == 3)
 			write(1, "\n", 1);
 		if (a == 1)
-			perror("Error");
+			perror(av[0]);
 		if (a == 4)
 		{
 			free(string);
@@ -32,7 +34,7 @@ int main(void)
 		else
 		{
 			argv = tokenizer(string);
-			exec(argv, string);
+			exec(argv, string, av);
 		}
 	}
 	if (cp == 0)

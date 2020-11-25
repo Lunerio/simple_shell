@@ -6,7 +6,7 @@
  * @string: string received from getline to free
  */
 
-void exec(char **argv, char *string)
+void exec(char **argv, char *string, char **av)
 {
 	pid_t child_pid;
 	int status;
@@ -15,14 +15,14 @@ void exec(char **argv, char *string)
 
 	if (child_pid == -1)
 	{
-		perror("Error");
+		perror(av[0]);
 		exit(25);
 	}
 	if (child_pid == 0)
 	{
 		if (execve(argv[0], argv, NULL) == -1)
 		{
-			perror("Error");
+			perror(av[0]);
 		}
 		free(string);
 		fargv(argv);
