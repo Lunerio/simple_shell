@@ -68,34 +68,6 @@ void _printenv(void)
 }
 
 /**
- * *_getenv - get the value of given variable
- * @name: variable name
- * Return: value of given variable
- */
-
-char *_getenv(char *name)
-{
-	extern char **environ;
-	int i;
-	size_t j;
-	int ch;
-
-	for (i = 0; environ[i] != 0; i++)
-	{
-		for (j = 0; environ[i][j] != '='; j++)
-		{
-		}
-		ch = _strncmp(environ[i], name, j);
-		if (ch == 0)
-		{
-			strtok(environ[i], "=");
-			return (strtok(NULL, "="));
-		}
-	}
-	return (NULL);
-}
-
-/**
  * *_strcat - concatenates two strings
  * @dest: string to concatenate to
  * @src: string to be concatenated
