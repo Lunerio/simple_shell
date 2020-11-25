@@ -1,7 +1,7 @@
-.TH "simple_shell" "1" "November 25th, 2020"
+.TH "hsh" "1" "November 25th, 2020"
 
 .SH NAME
-simple_shell
+hsh
 
 
 
@@ -69,32 +69,6 @@ If an output error is encountered, a negative value is returned.
 
 
 .SH EXAMPLE
-
-
-#include "holberton.h"
-
-
-int main()
-
-
-	{
-
-
-		_printf ("Characters: %c %c \n", 'a', 65);
-
-
-   		_printf ("Decimal: % \n", 1977);
-
-
-   		_printf ("%s \n", "A string");
-
-
-   		return (0);
-
-
-	}
-
-
 
 
 .IP Output:
