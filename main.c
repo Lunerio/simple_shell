@@ -18,11 +18,11 @@ int main(void)
 		glcheck = getline(&string, &buf, stdin);
 
 		a = checker(glcheck, string);
-		if (a == 2) /*exit condition*/
+		if (a == 2)
 			return(0);
-		if (a == 3) /*new line*/
+		if (a == 3)
 			write(1, "\n", 1);
-		if (a == 1) /*in case of -1 in getline*/
+		if (a == 1)
 			perror("Error");
 		if (a == 4)
 		{
@@ -31,7 +31,7 @@ int main(void)
 		}
 		else
 		{
-		        argv = tokenizer(string);
+			argv = tokenizer(string);
 			exec(argv, string);
 		}
 	}

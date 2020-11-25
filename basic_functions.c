@@ -50,7 +50,6 @@ int _strcmp(char *s1, char *s2)
 
 void _printenv(void)
 {
-	extern char **environ;
 	int i;
 	size_t j;
 

@@ -1,5 +1,11 @@
 #include "shell_header.h"
 
+/**
+ * tokenizer - tokenize the string from getline and asign them to argv
+ * @string: string to tokenize
+ * Return: argv with tokens
+ */
+
 char **tokenizer(char *string)
 {
 	char *toc = NULL;

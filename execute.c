@@ -1,5 +1,11 @@
 #include "shell_header.h"
 
+/**
+ * exec - execute given command with its arguments
+ * @argv: pointer with arguements tokenized
+ * @string: string received from getline to free
+ */
+
 void exec(char **argv, char *string)
 {
 	pid_t child_pid;

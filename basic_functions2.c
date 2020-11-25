@@ -4,6 +4,7 @@
  * _strncmp - check the code for Holberton School students.
  * @s1: pointer to s1
  * @s2: pointer to s2
+ * @n: limit of bytes to read
  * Return: Always 0.
  */
 
@@ -65,6 +66,7 @@ char *_strdup(char *str)
 
 /**
  * p_prompt - Prints prompt on interactive mode
+ * Return: 0 if interactive, 1 if non-interactive
  */
 
 int p_prompt(void)

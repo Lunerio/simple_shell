@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <string.h>
 
+extern char **environ;
 
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);

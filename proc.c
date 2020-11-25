@@ -1,36 +1,39 @@
 #include "shell_header.h"
 
-int checker(int glcheck, char *string) /*devuelve un int al main para
-retornar segun condiciones*/
-{
-     if (glcheck == -1)
-     {
-         if (glcheck == EOF)
-         {
-              free(string);
-	      write(1, "\n", 1);
-              return (2); /*for exiting*/
-	 }
-	 perror("Error");
-	 free(string);
-	 return (1); /*for error*/
-     }
+/**
+ * checker - checks the conditions from getline
+ * @glcheck: int from getline return
+ * @string: string from getline in order to free
+ * Return: 1 for error, 2 on exit condition, 3 in new line, 4 for printenv
+ */
 
-     if (string[0] == '\n')
-     {
-	     free(string);
-	     return (3); /*print new line */
-     }
-     if (_strcmp(string, "exit\n") == 0)
-     {
-	     free(string);
-	     return (2); /*for exiting*/
-     }
-
-     if (_strcmp(string, "env\n") == 0)
-     {
-	     _printenv();
-	     return (4);
-     }
-     return (0);
+int checker(int glcheck, char *string){
+	if (glcheck == -1)
+	{
+		if (glcheck == EOF)
+		{
+			free(string);
+			write(1, "\n", 1);
+			return (2); /*for exiting*/
+		}
+		perror("Error");
+		free(string);
+		return (1); /*for error*/
+	}
+	if (string[0] == '\n')
+	{
+		free(string);
+		return (3); /*print new line */
+	}
+	if (_strcmp(string, "exit\n") == 0)
+	{
+		free(string);
+		return (2); /*for exiting*/
+	}
+	if (_strcmp(string, "env\n") == 0)
+	{
+		_printenv();
+		return (4);
+	}
+	return (0);
 }
