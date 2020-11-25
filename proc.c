@@ -41,7 +41,7 @@ int checker(int glcheck, char *string)
 	for (i = 0; string[i] != '\0'; i++)
 	{
 	}
-	if (string[i - 1] == 32)
+	if (string[i - 2] == 32)
 	{
 		free(string);
 		return (3);
