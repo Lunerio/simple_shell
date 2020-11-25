@@ -4,36 +4,30 @@
 hsh
 
 .SH DESCRIPTION
-The hsh utility is a command language interpreter that shall execute commands read from a command line string, the standard input, or a specified file.
+The hsh utility is a command language interpreter that shall execute commands read from a command line string and the standard input.
 
 .SH STDIN
 
 
-.SH RETURN VALUE
 
 
-Upon successful return, this function returns the number of characters printed (excluding the null byte used to end output to strings).
+.SH EXIT STATUS
+The following exit values shall be returned:
+.B
 
+0 The script to be executed consisted solely of zero or more blank lines or comments, or both.
+.B
 
-If an output error is encountered, a negative value is returned.
+1-125 A non-interactive shell detected an error other than command_file not found, including but not limited to syntax, redirection, or variable assignment errors.
+.B
 
+127 A specified command_file could not be found by a non-interactive shell.
+.B
 
+Otherwise, the shell shall return the exit status of the last command it invoked or attempted to invoke.
 
 
 .SH EXAMPLE
-
-
-.IP Output:
-
-
-Characters: a A
-
-
-Decimal: 1977
-
-
-A string
-
 
 
 
