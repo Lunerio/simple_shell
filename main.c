@@ -10,7 +10,7 @@
 int main(int ac, char **av)
 {
 	char *string, **argv = NULL;
-	int glcheck, a, cp;
+	int glcheck, a, cp, lstring;
 	size_t buf = 0;
 
 	(void)ac;
@@ -21,9 +21,12 @@ int main(int ac, char **av)
 		cp = p_prompt();
 		glcheck = getline(&string, &buf, stdin);
 
+		lstring = _strlen(string);
+		string[lstring - 1] = '\0';
+
 		a = checker(glcheck, string);
 		if (a == 2)
-			exit(0);
+			break;
 		if (a == 3)
 			write(1, "\n", 1);
 		if (a == 1)
@@ -32,6 +35,10 @@ int main(int ac, char **av)
 		{
 			free(string);
 			continue;
+		}
+		if (a == 5)
+		{
+			exit(25);
 		}
 		else
 		{

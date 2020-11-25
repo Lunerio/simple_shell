@@ -14,7 +14,6 @@ int checker(int glcheck, char *string)
 		if (glcheck == EOF)
 		{
 			free(string);
-			write(1, "\n", 1);
 			return (2); /*for exiting*/
 		}
 		perror("Error");
@@ -26,12 +25,12 @@ int checker(int glcheck, char *string)
 		free(string);
 		return (3); /*print new line */
 	}
-	if (_strcmp(string, "exit\n") == 0)
+	if (_strcmp(string, "exit") == 0)
 	{
 		free(string);
-		return (2); /*for exiting*/
+		return (5); /*for exiting*/
 	}
-	if (_strcmp(string, "env\n") == 0)
+	if (_strcmp(string, "env") == 0)
 	{
 		_printenv();
 		return (4);

@@ -9,13 +9,10 @@
 char **tokenizer(char *string)
 {
 	char *toc = NULL;
-	int i = 0, j = 0, toklen = 0;
+	int i = 0, toklen = 0;
 	char **argv = NULL;
 
 	argv = malloc(sizeof(char *) * 64);
-
-	j = _strlen(string);
-	string[j - 1] = '\0';
 
 	toc = strtok(string, " ");
 	while (toc != NULL)
