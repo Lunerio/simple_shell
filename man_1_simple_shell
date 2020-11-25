@@ -3,58 +3,10 @@
 .SH NAME
 hsh
 
-
-
-
-.SH SYNOPSIS
-
-
-
 .SH DESCRIPTION
-The sh utility is a command language interpreter that shall execute commands read from a command line string, the standard input, or a specified file.
+The hsh utility is a command language interpreter that shall execute commands read from a command line string, the standard input, or a specified file.
 
-
-
-.SH OPERANDS
-
-.IP argument
-
-The positional parameters ($1, $2, and so on) shall be set to arguments, if any.
-
-.IP command_file
-
-The pathname of a file containing commands. If the pathname contains one or more <slash> characters, the implementation attempts to read that file; the file need not be executable. If the pathname does not contain a <slash> character:
-
-*  The implementation shall attempt to read that file from the current working directory; the file need not be executable.
-
-*  If the file is not in the current working directory, the implementation may perform a search for an executable file using the value of PATH
-
-
-.B Conversion specifiers
-
-
-A character that specifies the type of conversion to be applied. The main conversion specifiers and their meanings are:
-
-
-.IP d,i
-The int argument is converted to signed decimal notation. '%d' prints a decimal (base 10) number and '%i' prints an integer in base 10.
-
-
-.IP o,u,x,X
-The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X) notation.
-
-
-.IP c
-It prints a single character. The int argument is converted to an unsigned char, and the resulting character is written.
-
-
-.IP s
-It prints a string of characters. The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are written up to (but not including) a terminating null byte ('\0').
-
-.IP %
-A percent sign ('%') is written. No argument is converted. The complete conversion specification is '%%'.
-
-
+.SH STDIN
 
 
 .SH RETURN VALUE
