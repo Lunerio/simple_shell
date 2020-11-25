@@ -6,7 +6,7 @@ This is a custom simple shell made for Holberton School.
 
 
 ## Manual:
-You can execute its manual entering the following command in your shell: man ./man_shell
+You can execute its manual entering the following command in your shell: man ./man_1_simple_shell
 
 ## Authors
 [-][Hugo Gómez](https://github.com/Lunerio)
