@@ -9,8 +9,6 @@
 
 int checker(int glcheck, char *string)
 {
-	int i;
-
 	if (glcheck == -1)
 	{
 		if (glcheck == EOF)
@@ -38,13 +36,40 @@ int checker(int glcheck, char *string)
 		_printenv();
 		return (4);
 	}
-	for (i = 0; string[i] != '\0'; i++)
-	{
-	}
-	if (string[i - 2] == 32)
+	if (s_char(string) == 0)
 	{
 		free(string);
 		return (3);
 	}
 	return (0);
+}
+
+
+/**
+ * s_char - checks special characters
+ * @string: string from getline in order to free
+ * Return: 1 for error, 2 on exit condition, 3 in new line, 4 for printenv
+ */
+
+int s_char(char *string)
+{
+	int i, flag = 0;
+
+	for (i = 0; string[i] != '\0'; i++)
+	{
+		if (string[i] >= 34 && string[i] <= 125 &&
+		    string[i] != '.' && string[i] != '"' &&
+		    string[i] != '(' && string[i] != ')' &&
+		    string[i] != '&' && string[i] != '^' &&
+		    string[i] != 39 && string[i] != '>' &&
+		    string[i] != '<' && string[i] != '{' &&
+		    string[i] != '}' && string[i] != '[' &&
+		    string[i] != '/' && string[i] != '\\' &&
+		    string[i] != '|' && string[i] != '`' &&
+		    string[i] != ';')
+		{
+			flag++;
+		}
+	}
+	return (flag);
 }

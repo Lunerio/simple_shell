@@ -22,5 +22,6 @@ char *_strcpy(char *dest, char *src);
 void exec(char **argv, char *string, char **av);
 void fargv(char **argv);
 int checker(int glcheck, char *string);
+int s_char(char *string);
 
 #endif
