@@ -8,6 +8,7 @@ This is a custom simple shell made for Holberton School.
 * Ctrl+D: closes the program
 
 ### Example
+```
 $ ./hsh
 
 ($) /bin/ls
@@ -79,6 +80,7 @@ OLDPWD=/home/usr
 ($) exit
 
 $
+``` 
 
 ## Manual:
 You can execute its manual entering the following command in your shell: man ./man_1_simple_shell
