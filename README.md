@@ -2,7 +2,7 @@
 This is a custom simple shell made for Holberton School.
 
 ## Features:
-* Execute commands with arguments: runs shell commands (only commands dir, at the moment)
+* Execute commands with arguments: runs shell commands (only with commands dir)
 * env: lists all environment variables
 * exit: finishes the program
 * Ctrl+D: closes the program
